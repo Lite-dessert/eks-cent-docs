@@ -2,7 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.3.0)
-    eks-cent (2.0.0)
+    eks-cent (3.0.0)
+      base64
       eksa-server (~> 1.1)
     eksa-server (1.1.1)
       logger (~> 1.6)
@@ -26,7 +27,7 @@ DEPENDENCIES
 
 CHECKSUMS
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
-  eks-cent (2.0.0) sha256=b3cb9bbd6ed13dced850045c9b7118500b542126c22e60bfb81f0f579861249e
+  eks-cent (3.0.0) sha256=490f8bf54f3331fca4bb1ed5f789e9e4a4c544ddcab6543ff6b4baf3855ad183
   eksa-server (1.1.1) sha256=bb7889601ae16e332ade1fa8deb3484558df798d125b4f998ae16280b51ada05
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   nio4r (2.7.5) sha256=6c90168e48fb5f8e768419c93abb94ba2b892a1d0602cb06eef16d8b7df1dca1
