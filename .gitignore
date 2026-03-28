@@ -1,0 +1,18 @@
+# Ignore bundler config and installed gems
+.bundle/
+vendor/bundle/
+
+# Ignore logs and temp files
+log/*.log
+tmp/
+*.swp
+*~
+.DS_Store
+
+# Ignore environment variables
+.env
+.env.local
+
+# Project specific
+.ruby-lsp/
+/home/ishikawauta/.gemini/antigravity/

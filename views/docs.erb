@@ -1,0 +1,168 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row gap-8">
+    <!-- Sidebar -->
+    <aside class="md:w-64 space-y-6">
+        <div class="sticky top-24">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-4">Memulai</h3>
+            <nav class="space-y-1">
+                <a href="#framework" class="block py-2 px-4 rounded-xl text-blue-600 bg-blue-50 font-semibold border-l-4 border-blue-600">Eks-Cent Framework</a>
+                <a href="#fitur" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Fitur Utama</a>
+                <a href="#instalasi" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Instalasi</a>
+                <a href="#cepat" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Memulai Cepat</a>
+            </nav>
+
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-8 mb-4 px-4">Panduan Lanjutan</h3>
+            <nav class="space-y-1">
+                <a href="#cli" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Penggunaan CLI</a>
+                <a href="#produksi" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Mode Produksi</a>
+                <a href="#tes" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Pengujian</a>
+                <a href="#lisensi" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Lisensi</a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <article class="flex-1 glass p-10 md:p-14 rounded-[40px] prose prose-slate max-w-none">
+        <h1 id="framework" class="text-4xl font-extrabold text-slate-900 mb-4">Eks-Cent Framework 🚀</h1>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            <strong>Eks-Cent</strong> adalah framework web Ruby ringan yang terinspirasi oleh Rack. Dirancang untuk kecepatan, keamanan, dan kemudahan penggunaan tanpa dependensi eksternal yang berat.
+        </p>
+        <p class="text-slate-600 mb-12">
+            Eks-Cent menggunakan <strong>Eksa-Server</strong> sebagai engine server bawaan untuk performa tinggi di lingkungan produksi.
+        </p>
+
+        <hr class="border-slate-200/60 my-10" />
+
+        <h2 id="fitur" class="text-2xl font-bold text-slate-900 mb-6">✨ Fitur Utama</h2>
+        <ul class="space-y-4 text-slate-600 list-none pl-0">
+            <li class="flex items-start gap-3">
+                <div class="mt-1 text-xl">🛤</div>
+                <div><strong>Advanced Routing:</strong> DSL rute yang bersih dengan dukungan parameter dinamis dan namespace.</div>
+            </li>
+            <li class="flex items-start gap-3">
+                <div class="mt-1 text-xl">🔐</div>
+                <div>
+                    <strong>Security Pack:</strong>
+                    <ul class="mt-2 space-y-2 list-disc list-inside">
+                        <li><strong>Signed Sessions:</strong> Data session aman dengan HMAC-SHA256.</li>
+                        <li><strong>XSS Protection:</strong> Helper <code>h</code> otomatis untuk escape HTML di template.</li>
+                        <li><strong>Security Headers:</strong> Middleware bawaan untuk header Frame-Options, XSS-Protection, dll.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="flex items-start gap-3">
+                <div class="mt-1 text-xl">🎨</div>
+                <div><strong>Templating:</strong> Integrasi native dengan <strong>ERB</strong> (Embedded Ruby).</div>
+            </li>
+            <li class="flex items-start gap-3">
+                <div class="mt-1 text-xl">📦</div>
+                <div><strong>JSON Ready:</strong> Parsing otomatis untuk request body <code>application/json</code>.</div>
+            </li>
+            <li class="flex items-start gap-3">
+                <div class="mt-1 text-xl">⚡</div>
+                <div><strong>High Performance:</strong> Terintegrasi dengan Eksa-Server (Cluster mode & Workers).</div>
+            </li>
+            <li class="flex items-start gap-3">
+                <div class="mt-1 text-xl">🛠</div>
+                <div><strong>CLI Tool:</strong> Jalankan aplikasi dengan perintah <code>ekscentup</code> layaknya <code>rackup</code>.</div>
+            </li>
+        </ul>
+
+        <h2 id="instalasi" class="text-2xl font-bold text-slate-900 mt-16 mb-4">📦 Instalasi</h2>
+        <p class="text-slate-600 mb-4">Tambahkan baris ini ke dalam Gemfile aplikasi Anda:</p>
+        <pre><code class="language-ruby">gem 'eks-cent'</code></pre>
+        <p class="text-slate-600 mt-6 mb-4">Lalu jalankan:</p>
+        <pre><code class="language-bash">gem install eks-cent</code></pre>
+
+        <h2 id="cepat" class="text-2xl font-bold text-slate-900 mt-16 mb-4">🚀 Memulai Cepat</h2>
+        <p class="text-slate-600 mb-4">Buat file bernama <code class="bg-blue-50 text-blue-600 px-2 rounded">config.eks</code>:</p>
+        <pre><code class="language-ruby"># config.eks
+use EksCent::Middleware::ContentSecurity
+use EksCent::Middleware::Session
+use EksCent::Middleware::Logger
+use EksCent::Middleware::ShowExceptions
+
+router = EksCent::Router.new do
+  # Halaman Utama
+  get '/' do |req, res|
+    req.session['visits'] ||= 0
+    req.session['visits'] += 1
+    res.write "&lt;h1&gt;Halo! Anda sudah berkunjung #{req.session['visits']} kali.&lt;/h1&gt;"
+  end
+
+  # Rute Dinamis
+  get '/hello/:name' do |req, res|
+    res.render 'welcome', name: req.params['name']
+  end
+
+  # API JSON
+  namespace '/api' do
+    post '/data' do |req, res|
+      res.headers['Content-Type'] = 'application/json'
+      res.write({ status: 'success', data: req.params }.to_json)
+    end
+  end
+end
+
+run router</code></pre>
+        <p class="text-slate-600 mt-6 mb-4">Jalankan server:</p>
+        <div class="bg-slate-900 text-slate-100 p-6 rounded-2xl font-mono">
+            <span class="text-emerald-400">$</span> ./bin/ekscentup -p 3000
+        </div>
+
+        <h2 id="cli" class="text-2xl font-bold text-slate-900 mt-16 mb-6">🛠 Penggunaan CLI (<code>ekscentup</code>)</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-left">
+                <thead class="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                        <th class="py-3 px-4 font-bold text-slate-900">Opsi</th>
+                        <th class="py-3 px-4 font-bold text-slate-900">Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr>
+                        <td class="py-3 px-4 text-blue-600 font-mono">-p, --port</td>
+                        <td class="py-3 px-4 text-slate-600">Menentukan port server (default: 3000)</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 text-blue-600 font-mono">-o, --host</td>
+                        <td class="py-3 px-4 text-slate-600">Menentukan host server (default: 0.0.0.0)</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 text-blue-600 font-mono">-w, --workers</td>
+                        <td class="py-3 px-4 text-slate-600">Jumlah worker untuk mode Cluster</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 text-blue-600 font-mono">-R, --reload</td>
+                        <td class="py-3 px-4 text-slate-600">Aktifkan auto-reload saat file berubah</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 text-blue-600 font-mono">-e, --env</td>
+                        <td class="py-3 px-4 text-slate-600">Set lingkungan (<code>development</code> atau <code>production</code>)</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 text-blue-600 font-mono">-L, --log</td>
+                        <td class="py-3 px-4 text-slate-600">Simpan log ke file tertentu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="produksi" class="text-2xl font-bold text-slate-900 mt-16 mb-4">🛡 Mode Produksi</h2>
+        <p class="text-slate-600 mb-6">Untuk keamanan maksimal di produksi, pastikan Anda menyetel environment variable dan secret key:</p>
+        <pre><code class="language-bash">export EKS_CENT_SECRET_KEY_BASE="kunci_rahasia_anda_yang_unik"
+export RACK_ENV=production
+./bin/ekscentup -p 80 -e production</code></pre>
+
+        <h2 id="tes" class="text-2xl font-bold text-slate-900 mt-16 mb-4">🧪 Pengujian</h2>
+        <p class="text-slate-600 mb-6">Eks-Cent dilengkapi dengan suite pengujian yang lengkap. Untuk menjalankan semua tes:</p>
+        <pre><code class="language-bash">ruby test/eks_cent_test.rb
+ruby test/router_test.rb
+ruby test/security_test.rb</code></pre>
+
+        <h2 id="lisensi" class="text-2xl font-bold text-slate-900 mt-16 mb-4">📄 Lisensi</h2>
+        <p class="text-slate-600">
+            Eks-Cent didistribusikan di bawah <a href="LICENSE" class="text-blue-600 hover:underline">Lisensi MIT</a>.
+        </p>
+    </article>
+</div>
+

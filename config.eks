@@ -1,0 +1,103 @@
+# config.eks
+require 'erb'
+
+use EksCent::Middleware::ContentSecurity
+use EksCent::Middleware::Session
+use EksCent::Middleware::Logger
+use EksCent::Middleware::ShowExceptions
+use EksCent::Middleware::Static, root: 'public'
+
+# Tambahkan helper ke EksCent::Router agar bisa diakses di dalam blok rute
+class EksCent::Router
+  def render_page(req, res, template, title, locals = {})
+    res.headers['Content-Type'] = 'text/html; charset=utf-8'
+    
+    layout_path = File.join('views', 'layout.erb')
+    template_path = File.join('views', "#{template}.erb")
+    
+    template_content = File.read(template_path)
+    layout_content = File.read(layout_path)
+    
+    # Render template utama
+    context = Object.new
+    context.extend(ERB::Util)
+    locals.each { |k, v| context.instance_variable_set("@#{k}", v) }
+    context.instance_variable_set("@title", title)
+    context.instance_variable_set("@path", req.path)
+    
+    # Deteksi base URL secara dinamis
+    protocol = req.env['HTTPS'] == 'on' ? 'https' : 'http'
+    base_url = "#{protocol}://#{req.env['HTTP_HOST']}"
+    context.instance_variable_set("@base_url", base_url)
+    
+    # Definisikan h di context
+    def context.h(s); html_escape(s); end
+    
+    main_content = ERB.new(template_content).result(context.instance_eval { binding })
+    
+    # Render layout dengan main_content sebagai yield
+    final_rendered = ERB.new(layout_content).result(context.instance_eval do
+      @content = main_content
+      binding
+    end)
+    
+    res.write final_rendered
+  end
+end
+
+router = EksCent::Router.new do
+  # Halaman Utama
+  get '/' do |req, res|
+    render_page(req, res, 'index', 'Eks-Cent | Web Framework Modern')
+  end
+
+  # Dokumentasi Lengkap
+  get '/docs' do |req, res|
+    render_page(req, res, 'docs', 'Dokumentasi Eks-Cent')
+  end
+
+  # Sitemap Dinamis
+  get '/sitemap.xml' do |req, res|
+    puts "[DEBUG] Memproses rute /sitemap.xml..."
+    protocol = req.env['HTTPS'] == 'on' ? 'https' : 'http'
+    host = req.env['HTTP_HOST']
+    res.headers['Content-Type'] = 'text/xml; charset=utf-8'
+    res.headers['Content-Disposition'] = 'inline'
+    res.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    
+    # Deteksi base URL
+    protocol = req.env['HTTPS'] == 'on' ? 'https' : 'http'
+    host = req.env['HTTP_HOST']
+    @base_url = "#{protocol}://#{host}"
+    
+    res.render 'sitemap', base_url: @base_url
+  end
+
+  # Debugging: Sesuatu tanpa .xml
+  get '/sitemap-data' do |req, res|
+    res.headers['Content-Type'] = 'text/xml; charset=utf-8'
+    res.headers['Content-Disposition'] = 'inline'
+    
+    # Deteksi base URL
+    protocol = req.env['HTTPS'] == 'on' ? 'https' : 'http'
+    host = req.env['HTTP_HOST']
+    base_url = "#{protocol}://#{host}"
+    
+    res.render 'sitemap', base_url: base_url
+  end
+
+  # Robots.txt Dinamis
+  get '/robots.txt' do |req, res|
+    protocol = req.env['HTTPS'] == 'on' ? 'https' : 'http'
+    host = req.env['HTTP_HOST']
+    
+    res.headers['Content-Type'] = 'text/plain; charset=utf-8'
+    res.write <<~ROBOTS
+      User-agent: *
+      Allow: /
+      Sitemap: #{protocol}://#{host}/sitemap.xml
+    ROBOTS
+  end
+end
+
+run router
