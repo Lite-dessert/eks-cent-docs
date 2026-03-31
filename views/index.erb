@@ -1,5 +1,5 @@
 <!-- Hero Section -->
-<section class="relative pt-24 pb-32 overflow-hidden">
+<section class="relative pt-12 sm:pt-20 pb-20 sm:pb-32 overflow-hidden">
     <!-- Background Accents -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full -z-10 opacity-30">
         <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full blur-[100px] animate-pulse"></div>
@@ -7,18 +7,21 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 font-display">
-            Satu Framework,<br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Ribuan Kemungkinan.</span>
+        <div class="flex justify-center mb-12">
+            <img src="/logo.webp" alt="Eks-Cent v4" class="w-full max-w-2xl">
+        </div>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 font-display px-4">
+            Versi <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">4.0.0</span> Telah Tiba.
         </h1>
-        <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Eks-Cent adalah framework web Ruby yang ringan, terinspirasi oleh Rack, dan dirancang untuk performa tinggi tanpa dependensi berat.
+        <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light px-6">
+            Framework web Ruby modern yang mengutamakan kecepatan, keamanan tingkat tinggi, dan arsitektur <strong>URL Mapping</strong> yang canggih.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a href="/docs" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-semibold shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all text-lg">
-                Mulai Sekarang
+                Pelajari Dokumentasi
             </a>
             <a href="https://github.com/IshikawaUta/eks-cent" class="px-8 py-4 bg-white/60 backdrop-blur text-slate-700 border border-slate-200 rounded-2xl font-semibold hover:bg-white/90 transition-all text-lg">
-                Lihat GitHub
+                GitHub Repository
             </a>
         </div>
     </div>
@@ -28,63 +31,63 @@
 <section class="py-24 bg-white/30 backdrop-blur-sm border-y border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">Kenapa Memilih Eks-Cent?</h2>
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Inovasi di v4.0.0</h2>
             <div class="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Feature 1: Advanced Routing -->
+            <!-- Feature 1: Modern Routing -->
             <div class="glass-card p-8 rounded-3xl">
                 <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 text-2xl">
                     🛤
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Advanced Routing</h3>
-                <p class="text-slate-600 leading-relaxed">DSL rute yang bersih dengan dukungan parameter dinamis dan namespace untuk pengorganisasian kode yang rapi.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Modern Routing DSL</h3>
+                <p class="text-slate-600 leading-relaxed">DSL intuitif dengan dukungan parameter dinamis <code>:id</code>, namespace, dan kontrol eksekusi <code>halt</code>.</p>
             </div>
 
-            <!-- Feature 2: Security Pack -->
+            <!-- Feature 2: URL Mapping -->
             <div class="glass-card p-8 rounded-3xl">
                 <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-6 text-2xl">
-                    🔐
+                    🗺
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Security Pack</h3>
-                <p class="text-slate-600 leading-relaxed">Dilengkapi dengan Signed Sessions, XSS Protection (helper <code>h</code>), dan Security Headers bawaan.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">URL Mapping</h3>
+                <p class="text-slate-600 leading-relaxed">Jalankan banyak aplikasi independen di bawah satu server dengan pemetaan jalur (path mapping) yang fleksibel.</p>
             </div>
 
-            <!-- Feature 3: Templating ERB -->
+            <!-- Feature 3: Security Pack -->
             <div class="glass-card p-8 rounded-3xl">
                 <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6 text-2xl">
-                    🎨
+                    🔐
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Templating ERB</h3>
-                <p class="text-slate-600 leading-relaxed">Integrasi native dengan Embedded Ruby (ERB) untuk pembuatan halaman dinamis yang familiar dan bertenaga.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Security Suite</h3>
+                <p class="text-slate-600 leading-relaxed">Session terenkripsi HMAC-SHA256, proteksi XSS otomatis, dan perlindungan DoS bawaan.</p>
             </div>
 
-            <!-- Feature 4: JSON Ready -->
+            <!-- Feature 4: Smart Templating -->
             <div class="glass-card p-8 rounded-3xl">
                 <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-6 text-2xl">
-                    📦
+                    🎨
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">JSON Ready</h3>
-                <p class="text-slate-600 leading-relaxed">Parsing otomatis untuk request body <code>application/json</code>, siap digunakan untuk membangun API modern.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Smart Templating</h3>
+                <p class="text-slate-600 leading-relaxed">Sistem Auto-Layout (ERB), injeksi objek <code>@req/@res</code>, dan helper keamanan <code>@h</code> terintegrasi.</p>
             </div>
 
-            <!-- Feature 5: High Performance -->
+            <!-- Feature 5: Application Cascade -->
             <div class="glass-card p-8 rounded-3xl">
                 <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center text-rose-600 mb-6 text-2xl">
-                    ⚡
+                    🌊
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">High Performance</h3>
-                <p class="text-slate-600 leading-relaxed">Terintegrasi dengan Eksa-Server (Cluster mode & Workers) untuk menangani ribuan request per detik.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">App Cascading</h3>
+                <p class="text-slate-600 leading-relaxed">Gunakan Cascade untuk mencoba beberapa aplikasi secara bergantian hingga permintaan berhasil ditangani.</p>
             </div>
 
-            <!-- Feature 6: CLI Tool -->
+            <!-- Feature 6: Production Ready -->
             <div class="glass-card p-8 rounded-3xl">
                 <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center text-cyan-600 mb-6 text-2xl">
-                    🛠
+                    ⚡
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">CLI Tool</h3>
-                <p class="text-slate-600 leading-relaxed">Jalankan aplikasi dengan perintah <code>ekscentup</code> yang intuitif, mendukung auto-reload dan konfigurasi port.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Eksa-Server Power</h3>
+                <p class="text-slate-600 leading-relaxed">Terintegrasi penuh dengan engine server performa tinggi untuk lingkungan produksi skala besar.</p>
             </div>
         </div>
     </div>
@@ -92,24 +95,37 @@
 
 <!-- Quick Start -->
 <section class="py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass p-12 rounded-[40px] shadow-2xl">
-            <h2 class="text-3xl font-extrabold text-slate-900 mb-8 text-center">Cepat & Sederhana</h2>
-            <div class="space-y-4">
-                <p class="text-slate-600 font-medium ml-2">1. Buat file <code class="bg-slate-100 px-2 py-1 rounded text-blue-600">config.eks</code></p>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass p-6 sm:p-12 rounded-[30px] sm:rounded-[40px] shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-8 text-center">Memulai Cepat Gaya v4</h2>
+            <div class="space-y-6">
+                <p class="text-slate-600 font-medium ml-2 text-center">Definisikan aplikasi Anda di <code class="bg-blue-50 text-blue-600 px-2 py-1 rounded">config.eks</code>:</p>
                 <div class="relative group">
-                    <pre><code># config.eks
+                    <pre><code class="language-ruby"># config.eks
+use EksCent::Middleware::Logger
+
+map "/api" do
+  api = EksCent::Router.new do
+    get '/status' do |req, res|
+      res.write({ status: 'online', v: EksCent::VERSION }.to_json)
+    end
+  end
+  run api
+end
+
 router = EksCent::Router.new do
   get '/' do |req, res|
-    res.write "Halo Dunia!"
+    res.write "&lt;h1&gt;Eks-Cent v#{EksCent::VERSION} Aktif!&lt;/h1&gt;"
   end
 end
 
 run router</code></pre>
                 </div>
-                <p class="text-slate-600 font-medium mt-8 ml-2">2. Jalankan server</p>
-                <div class="bg-slate-900 text-slate-200 p-6 rounded-2xl font-mono shadow-inner border border-slate-700">
-                    <span class="text-emerald-400">$</span> ekscentup
+                <p class="text-slate-600 font-medium mt-10 ml-2 text-center">Jalankan dengan mode auto-reload:</p>
+                <div class="bg-slate-900 text-slate-200 p-8 rounded-2xl font-mono shadow-inner border border-slate-700 flex items-center justify-between">
+                    <div>
+                        <span class="text-emerald-400">$</span> ekscentup -R --port 3000
+                    </div>
                 </div>
             </div>
         </div>

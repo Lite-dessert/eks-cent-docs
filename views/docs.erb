@@ -1,168 +1,240 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row gap-8">
     <!-- Sidebar -->
-    <aside class="md:w-64 space-y-6">
+    <aside class="md:w-72">
         <div class="sticky top-24">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-4">Memulai</h3>
-            <nav class="space-y-1">
-                <a href="#framework" class="block py-2 px-4 rounded-xl text-blue-600 bg-blue-50 font-semibold border-l-4 border-blue-600">Eks-Cent Framework</a>
-                <a href="#fitur" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Fitur Utama</a>
-                <a href="#instalasi" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Instalasi</a>
-                <a href="#cepat" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Memulai Cepat</a>
-            </nav>
+            <!-- Mobile Horizontal Navigation Wrapper -->
+            <div class="flex md:block overflow-x-auto md:overflow-visible gap-8 pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar">
+                <div class="flex-shrink-0 md:mb-8">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-4 font-display hidden md:block">Dasar</h3>
+                    <nav class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-1">
+                        <a href="#framework" class="whitespace-nowrap py-2 px-4 rounded-xl text-blue-600 bg-blue-50 font-semibold border-l-2 md:border-l-4 border-blue-600">v4.0.0</a>
+                        <a href="#fitur" class="whitespace-nowrap py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Fitur</a>
+                        <a href="#instalasi" class="whitespace-nowrap py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Instalasi</a>
+                    </nav>
+                </div>
 
-            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-8 mb-4 px-4">Panduan Lanjutan</h3>
-            <nav class="space-y-1">
-                <a href="#cli" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Penggunaan CLI</a>
-                <a href="#produksi" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Mode Produksi</a>
-                <a href="#tes" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Pengujian</a>
-                <a href="#lisensi" class="block py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Lisensi</a>
-            </nav>
+                <div class="flex-shrink-0 md:mb-8">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-4 font-display hidden md:block">Arsitektur</h3>
+                    <nav class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-1">
+                        <a href="#routing" class="whitespace-nowrap py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Routing</a>
+                        <a href="#mapping" class="whitespace-nowrap py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Mapping</a>
+                        <a href="#middleware" class="whitespace-nowrap py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Middleware</a>
+                    </nav>
+                </div>
+
+                <div class="flex-shrink-0">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-4 font-display hidden md:block">Referensi</h3>
+                    <nav class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-1">
+                        <a href="#api" class="whitespace-nowrap py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">API</a>
+                        <a href="#keamanan" class="whitespace-nowrap py-2 px-4 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">Keamanan</a>
+                    </nav>
+                </div>
+            </div>
         </div>
     </aside>
 
     <!-- Main Content -->
-    <article class="flex-1 glass p-10 md:p-14 rounded-[40px] prose prose-slate max-w-none">
-        <h1 id="framework" class="text-4xl font-extrabold text-slate-900 mb-4">Eks-Cent Framework 🚀</h1>
+    <article class="flex-1 glass p-6 sm:p-10 md:p-14 rounded-[30px] sm:rounded-[40px] prose prose-slate max-w-none">
+        <h1 id="framework" class="text-4xl font-extrabold text-slate-900 mb-4">Eks-Cent v4.0.0 🚀</h1>
         <p class="text-lg text-slate-600 leading-relaxed mb-6">
-            <strong>Eks-Cent</strong> adalah framework web Ruby ringan yang terinspirasi oleh Rack. Dirancang untuk kecepatan, keamanan, dan kemudahan penggunaan tanpa dependensi eksternal yang berat.
+            <strong>Eks-Cent</strong> adalah framework web Ruby modern yang ringan, menggunakan standar <strong>Eks Interface</strong>. Dirancang untuk kecepatan, keamanan tingkat tinggi, dan fleksibilitas tanpa beban dependensi eksternal yang besar.
         </p>
         <p class="text-slate-600 mb-12">
-            Eks-Cent menggunakan <strong>Eksa-Server</strong> sebagai engine server bawaan untuk performa tinggi di lingkungan produksi.
+            Dengan v4.0.0, Eks-Cent kini mendukung fitur arsitektural canggih seperti <strong>URL Mapping</strong> dan <strong>Application Cascading</strong>, menjadikannya pilihan utama untuk aplikasi mikro servis maupun web monolitik.
         </p>
 
         <hr class="border-slate-200/60 my-10" />
 
-        <h2 id="fitur" class="text-2xl font-bold text-slate-900 mb-6">✨ Fitur Utama</h2>
+        <h2 id="fitur" class="text-2xl font-bold text-slate-900 mb-6 font-display">✨ Fitur Utama v4.0.0</h2>
         <ul class="space-y-4 text-slate-600 list-none pl-0">
-            <li class="flex items-start gap-3">
-                <div class="mt-1 text-xl">🛤</div>
-                <div><strong>Advanced Routing:</strong> DSL rute yang bersih dengan dukungan parameter dinamis dan namespace.</div>
+            <li class="flex items-start gap-4 p-4 rounded-2xl bg-blue-50/50 border border-blue-100">
+                <div class="mt-1 text-2xl">🛤</div>
+                <div><strong>Modern Routing DSL:</strong> Pendefinisian rute intuitif dengan parameter dinamis (<code>:name</code>), namespace, dan kontrol eksekusi (<code>halt</code>).</div>
             </li>
-            <li class="flex items-start gap-3">
-                <div class="mt-1 text-xl">🔐</div>
-                <div>
-                    <strong>Security Pack:</strong>
-                    <ul class="mt-2 space-y-2 list-disc list-inside">
-                        <li><strong>Signed Sessions:</strong> Data session aman dengan HMAC-SHA256.</li>
-                        <li><strong>XSS Protection:</strong> Helper <code>h</code> otomatis untuk escape HTML di template.</li>
-                        <li><strong>Security Headers:</strong> Middleware bawaan untuk header Frame-Options, XSS-Protection, dll.</li>
-                    </ul>
-                </div>
+            <li class="flex items-start gap-4 p-4 rounded-2xl bg-indigo-50/50 border border-indigo-100">
+                <div class="mt-1 text-2xl">🗺</div>
+                <div><strong>URL Mapping & Cascading:</strong> Jalankan beberapa aplikasi independen di bawah satu server berdasarkan sub-jalur (mapping) atau fallback otomatis (cascade).</div>
             </li>
-            <li class="flex items-start gap-3">
-                <div class="mt-1 text-xl">🎨</div>
-                <div><strong>Templating:</strong> Integrasi native dengan <strong>ERB</strong> (Embedded Ruby).</div>
+            <li class="flex items-start gap-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100">
+                <div class="mt-1 text-2xl">🔐</div>
+                <div><strong>Security First:</strong> Session terenkripsi HMAC-SHA256, proteksi XSS otomatis, header keamanan bawaan, dan pembatasan parameter (DoS protection).</div>
             </li>
-            <li class="flex items-start gap-3">
-                <div class="mt-1 text-xl">📦</div>
-                <div><strong>JSON Ready:</strong> Parsing otomatis untuk request body <code>application/json</code>.</div>
-            </li>
-            <li class="flex items-start gap-3">
-                <div class="mt-1 text-xl">⚡</div>
-                <div><strong>High Performance:</strong> Terintegrasi dengan Eksa-Server (Cluster mode & Workers).</div>
-            </li>
-            <li class="flex items-start gap-3">
-                <div class="mt-1 text-xl">🛠</div>
-                <div><strong>CLI Tool:</strong> Jalankan aplikasi dengan perintah <code>ekscentup</code> layaknya <code>rackup</code>.</div>
+            <li class="flex items-start gap-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-100">
+                <div class="mt-1 text-2xl">🎨</div>
+                <div><strong>Smart Templating:</strong> Integrasi ERB dengan sistem <strong>Auto-Layout</strong>, injeksi objek (<code>@req</code>, <code>@res</code>), dan helper keamanan (<code>@h</code>).</div>
             </li>
         </ul>
 
-        <h2 id="instalasi" class="text-2xl font-bold text-slate-900 mt-16 mb-4">📦 Instalasi</h2>
+        <h2 id="instalasi" class="text-2xl font-bold text-slate-900 mt-16 mb-4 font-display">📦 Instalasi</h2>
         <p class="text-slate-600 mb-4">Tambahkan baris ini ke dalam Gemfile aplikasi Anda:</p>
-        <pre><code class="language-ruby">gem 'eks-cent'</code></pre>
+        <pre><code class="language-ruby">gem 'eks-cent', '~> 4.0.0'</code></pre>
         <p class="text-slate-600 mt-6 mb-4">Lalu jalankan:</p>
-        <pre><code class="language-bash">gem install eks-cent</code></pre>
+        <pre><code class="language-bash">bundle install</code></pre>
 
-        <h2 id="cepat" class="text-2xl font-bold text-slate-900 mt-16 mb-4">🚀 Memulai Cepat</h2>
-        <p class="text-slate-600 mb-4">Buat file bernama <code class="bg-blue-50 text-blue-600 px-2 rounded">config.eks</code>:</p>
-        <pre><code class="language-ruby"># config.eks
-use EksCent::Middleware::ContentSecurity
+        <h2 id="cepat" class="text-2xl font-bold text-slate-900 mt-16 mb-4 font-display">🚀 Memulai Cepat (v4 Style)</h2>
+        <p class="text-slate-600 mb-4">Buat file <code class="bg-blue-50 text-blue-600 px-2 rounded">config.eks</code> untuk mendefinisikan aplikasi Anda:</p>
+        <pre><code class="language-ruby"># 1. Global Middlewares
+use EksCent::Middleware::Runtime
 use EksCent::Middleware::Session
 use EksCent::Middleware::Logger
-use EksCent::Middleware::ShowExceptions
 
-router = EksCent::Router.new do
-  # Halaman Utama
-  get '/' do |req, res|
-    req.session['visits'] ||= 0
-    req.session['visits'] += 1
-    res.write "&lt;h1&gt;Halo! Anda sudah berkunjung #{req.session['visits']} kali.&lt;/h1&gt;"
-  end
-
-  # Rute Dinamis
-  get '/hello/:name' do |req, res|
-    res.render 'welcome', name: req.params['name']
-  end
-
-  # API JSON
-  namespace '/api' do
-    post '/data' do |req, res|
-      res.headers['Content-Type'] = 'application/json'
-      res.write({ status: 'success', data: req.params }.to_json)
+# 2. Pemetaan Aplikasi API
+map "/api" do
+  api = EksCent::Router.new do
+    get '/status' do |req, res|
+      res.content_type = 'application/json'
+      res.write({ status: 'online', version: EksCent::VERSION }.to_json)
     end
+  end
+  run api
+end
+
+# 3. Aplikasi Web Utama
+router = EksCent::Router.new do
+  get '/' do |req, res|
+    res.write "&lt;h1&gt;Web Utama v#{EksCent::VERSION}&lt;/h1&gt;"
   end
 end
 
 run router</code></pre>
-        <p class="text-slate-600 mt-6 mb-4">Jalankan server:</p>
+        <p class="text-slate-600 mt-6 mb-4">Jalankan server dengan mode reload:</p>
         <div class="bg-slate-900 text-slate-100 p-6 rounded-2xl font-mono">
-            <span class="text-emerald-400">$</span> ./bin/ekscentup -p 3000
+            <span class="text-emerald-400">$</span> ekscentup -R --port 3000
         </div>
 
-        <h2 id="cli" class="text-2xl font-bold text-slate-900 mt-16 mb-6">🛠 Penggunaan CLI (<code>ekscentup</code>)</h2>
+        <h2 id="routing" class="text-2xl font-bold text-slate-900 mt-20 mb-6 font-display">🛤 Dokumentasi Routing</h2>
+        <p class="text-slate-600 mb-6">Anda dapat menggunakan metode HTTP standar (<code>get</code>, <code>post</code>, <code>put</code>, <code>delete</code>, <code>patch</code>, <code>options</code>, <code>any</code>).</p>
+        <pre><code class="language-ruby">router = EksCent::Router.new do
+  # Parameter Dinamis
+  get '/user/:id' do |req, res|
+    id = req.params['id']
+    res.write "User ID: #{id}"
+  end
+
+  # Namespace untuk pengelompokan
+  namespace '/admin' do
+    get '/dashboard' do |req, res|
+      # Diakses via /admin/dashboard
+    end
+  end
+
+  # Kontrol Eksekusi dengan halt
+  get '/secret' do |req, res|
+    halt(res, 403, "Akses ditolak") unless req.session['admin']
+    res.write "Data Rahasia"
+  end
+end</code></pre>
+
+        <h2 id="mapping" class="text-2xl font-bold text-slate-900 mt-20 mb-6 font-display">🗺 URL Mapping & Cascade</h2>
+        <p class="text-slate-600 mb-4">Gunakan <code>map</code> untuk membagi aplikasi besar menjadi sub-aplikasi independen berdasarkan jalur URL.</p>
+        <pre><code class="language-ruby"># Meminta /blog akan diarahkan ke BlogApp
+map "/blog" do
+  run BlogApp
+end
+
+# Meminta / akan diarahkan ke MainApp
+map "/" do
+  run MainApp
+end</code></pre>
+        <p class="text-slate-600 mt-6 mb-4">Gunakan <code>cascade</code> jika Anda ingin mencoba beberapa aplikasi secara bergantian hingga ada yang merespons (bukan 404).</p>
+
+        <h2 id="middleware" class="text-2xl font-bold text-slate-900 mt-20 mb-6 font-display">📦 Middleware Bawaan</h2>
         <div class="overflow-x-auto">
             <table class="min-w-full text-left">
                 <thead class="bg-slate-50 border-b border-slate-200">
                     <tr>
-                        <th class="py-3 px-4 font-bold text-slate-900">Opsi</th>
+                        <th class="py-3 px-4 font-bold text-slate-900">Middleware</th>
                         <th class="py-3 px-4 font-bold text-slate-900">Deskripsi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                     <tr>
-                        <td class="py-3 px-4 text-blue-600 font-mono">-p, --port</td>
-                        <td class="py-3 px-4 text-slate-600">Menentukan port server (default: 3000)</td>
+                        <td class="py-3 px-4 text-blue-600 font-mono">Runtime</td>
+                        <td class="py-3 px-4 text-slate-600">Menambahkan header <code>X-Runtime</code> dengan waktu eksekusi.</td>
                     </tr>
                     <tr>
-                        <td class="py-3 px-4 text-blue-600 font-mono">-o, --host</td>
-                        <td class="py-3 px-4 text-slate-600">Menentukan host server (default: 0.0.0.0)</td>
+                        <td class="py-3 px-4 text-blue-600 font-mono">MethodOverride</td>
+                        <td class="py-3 px-4 text-slate-600">Mengizinkan override method HTTP via parameter <code>_method</code>.</td>
                     </tr>
                     <tr>
-                        <td class="py-3 px-4 text-blue-600 font-mono">-w, --workers</td>
-                        <td class="py-3 px-4 text-slate-600">Jumlah worker untuk mode Cluster</td>
+                        <td class="py-3 px-4 text-blue-600 font-mono">Session</td>
+                        <td class="py-3 px-4 text-slate-600">Manajemen session aman berbasis cookie dengan HMAC-SHA256.</td>
                     </tr>
                     <tr>
-                        <td class="py-3 px-4 text-blue-600 font-mono">-R, --reload</td>
-                        <td class="py-3 px-4 text-slate-600">Aktifkan auto-reload saat file berubah</td>
+                        <td class="py-3 px-4 text-blue-600 font-mono">Logger</td>
+                        <td class="py-3 px-4 text-slate-600">Logging permintaan ke STDOUT atau file log secara real-time.</td>
                     </tr>
                     <tr>
-                        <td class="py-3 px-4 text-blue-600 font-mono">-e, --env</td>
-                        <td class="py-3 px-4 text-slate-600">Set lingkungan (<code>development</code> atau <code>production</code>)</td>
+                        <td class="py-3 px-4 text-blue-600 font-mono">Static</td>
+                        <td class="py-3 px-4 text-slate-600">Melayani file statis dari direktori tertentu (default: <code>public</code>).</td>
                     </tr>
                     <tr>
-                        <td class="py-3 px-4 text-blue-600 font-mono">-L, --log</td>
-                        <td class="py-3 px-4 text-slate-600">Simpan log ke file tertentu</td>
+                        <td class="py-3 px-4 text-blue-600 font-mono">ShowExceptions</td>
+                        <td class="py-3 px-4 text-slate-600">Halaman error informatif untuk lingkungan pengembangan.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h2 id="produksi" class="text-2xl font-bold text-slate-900 mt-16 mb-4">🛡 Mode Produksi</h2>
-        <p class="text-slate-600 mb-6">Untuk keamanan maksimal di produksi, pastikan Anda menyetel environment variable dan secret key:</p>
-        <pre><code class="language-bash">export EKS_CENT_SECRET_KEY_BASE="kunci_rahasia_anda_yang_unik"
-export RACK_ENV=production
-./bin/ekscentup -p 80 -e production</code></pre>
+        <h2 id="templating" class="text-2xl font-bold text-slate-900 mt-20 mb-6 font-display">🎨 Templating & Layout</h2>
+        <p class="text-slate-600 mb-4">Framework akan otomatis mencari <code>views/layout.erb</code> sebagai pembungkus utama.</p>
+        <pre><code class="language-erb">&lt;!-- views/layout.erb --&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;header&gt;Aplikasi Eks-Cent&lt;/header&gt;
+    &lt;%= @content %&gt; &lt;!-- Konten dirender di sini --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p class="text-slate-600 mt-6 mb-4">Objek <code>@req</code>, <code>@res</code>, dan helper <code>@h</code> (escape HTML) selalu tersedia di dalam template secara otomatis.</p>
 
-        <h2 id="tes" class="text-2xl font-bold text-slate-900 mt-16 mb-4">🧪 Pengujian</h2>
-        <p class="text-slate-600 mb-6">Eks-Cent dilengkapi dengan suite pengujian yang lengkap. Untuk menjalankan semua tes:</p>
-        <pre><code class="language-bash">ruby test/eks_cent_test.rb
-ruby test/router_test.rb
-ruby test/security_test.rb</code></pre>
+        <h2 id="api" class="text-2xl font-bold text-slate-900 mt-20 mb-6 font-display">🛠 Panduan API</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-900 mb-4">Request (req)</h3>
+                <ul class="text-sm text-slate-600 space-y-2">
+                    <li><code>req.params</code>: Query, POST, & Route params.</li>
+                    <li><code>req.session</code>: Sesi terenkripsi R/W.</li>
+                    <li><code>req.path</code>: Jalur URL saat ini.</li>
+                    <li><code>req.user_agent</code>: Info browser pengunjung.</li>
+                </ul>
+            </div>
+            <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-900 mb-4">Response (res)</h3>
+                <ul class="text-sm text-slate-600 space-y-2">
+                    <li><code>res.write(msg)</code>: Menambah konten ke body.</li>
+                    <li><code>res.render(name)</code>: Render file ERB.</li>
+                    <li><code>res.status = code</code>: Set HTTP status (200, 404).</li>
+                    <li><code>res.redirect(path)</code>: Pengalihan URL.</li>
+                </ul>
+            </div>
+        </div>
 
-        <h2 id="lisensi" class="text-2xl font-bold text-slate-900 mt-16 mb-4">📄 Lisensi</h2>
+        <h2 id="tes" class="text-2xl font-bold text-slate-900 mt-20 mb-6 font-display">🧪 Pengujian (Testing)</h2>
+        <p class="text-slate-600 mb-6">Gunakan suite pengujian bawaan untuk memastikan stabilitas kode Anda:</p>
+        <pre><code class="language-ruby">require 'test/unit'
+require 'eks-cent'
+
+class MyAppTest &lt; Test::Unit::TestCase
+  def test_homepage
+    app = EksCent.load('config.eks')
+    mock = EksCent::MockRequest.new(app)
+    res = mock.get('/')
+    assert res.ok?
+    assert_match "Web Utama", res.body_content
+  end
+end</code></pre>
+
+        <h2 id="keamanan" class="text-2xl font-bold text-slate-900 mt-20 mb-6 font-display">🛡 Keamanan & Batasan (Eks Limits)</h2>
+        <p class="text-slate-600 mb-6">Anda dapat mengatur batasan melalui variabel lingkungan untuk mencegah serangan DoS pada parser parameter:</p>
+        <ul class="text-slate-600 space-y-2">
+            <li><code>EKS_QUERY_PARSER_PARAMS_LIMIT</code>: Maksimal parameter (default: 1000).</li>
+            <li><code>EKS_QUERY_PARSER_DEPTH_LIMIT</code>: Maksimal kedalaman nested params.</li>
+            <li><code>EKS_MULTIPART_TOTAL_PART_LIMIT</code>: Maksimal bagian dalam form multipart.</li>
+        </ul>
+
+        <h2 id="lisensi" class="text-2xl font-bold text-slate-900 mt-20 mb-4 font-display">📄 Lisensi</h2>
         <p class="text-slate-600">
-            Eks-Cent didistribusikan di bawah <a href="LICENSE" class="text-blue-600 hover:underline">Lisensi MIT</a>.
+            Eks-Cent v4.0.0 didistribusikan di bawah <a href="LICENSE" class="text-blue-600 hover:underline">Lisensi MIT</a>.
         </p>
     </article>
 </div>
-

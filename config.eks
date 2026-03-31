@@ -1,11 +1,14 @@
 # config.eks
 require 'erb'
 
+use EksCent::Middleware::Runtime
+use EksCent::Middleware::MethodOverride
 use EksCent::Middleware::ContentSecurity
 use EksCent::Middleware::Session
 use EksCent::Middleware::Logger
 use EksCent::Middleware::ShowExceptions
 use EksCent::Middleware::Static, root: 'public'
+use EksCent::Middleware::Head
 
 # Tambahkan helper ke EksCent::Router agar bisa diakses di dalam blok rute
 class EksCent::Router
@@ -51,12 +54,12 @@ end
 router = EksCent::Router.new do
   # Halaman Utama
   get '/' do |req, res|
-    render_page(req, res, 'index', 'Eks-Cent | Web Framework Modern')
+    render_page(req, res, 'index', 'Eks-Cent v4.0.0 | Web Framework Modern')
   end
 
   # Dokumentasi Lengkap
   get '/docs' do |req, res|
-    render_page(req, res, 'docs', 'Dokumentasi Eks-Cent')
+    render_page(req, res, 'docs', 'Dokumentasi Eks-Cent v4.0.0')
   end
 
   # Sitemap Dinamis
@@ -77,7 +80,17 @@ router = EksCent::Router.new do
     host = req.env['HTTP_HOST']
     @base_url = "#{protocol}://#{host}"
     
-    res.render 'sitemap', base_url: @base_url
+    # Gunakan ERB manual agar tidak terkena Auto-Layout dari res.render jika ada
+    sitemap_path = File.join('views', 'sitemap.erb')
+    sitemap_content = File.read(sitemap_path)
+    
+    # Render dengan base_url
+    context = Object.new
+    context.instance_variable_set("@base_url", @base_url)
+    rendered_xml = ERB.new(sitemap_content).result(context.instance_eval { binding })
+    
+    # Gunakan halt untuk menghentikan eksekusi dan mengembalikan XML murni langsung
+    halt(res, 200, rendered_xml)
   end
 
   # Debugging: Sesuatu tanpa .xml
@@ -92,7 +105,14 @@ router = EksCent::Router.new do
     host = req.env['HTTP_HOST']
     base_url = "#{protocol}://#{host}"
     
-    res.render 'sitemap', base_url: base_url
+    sitemap_path = File.join('views', 'sitemap.erb')
+    sitemap_content = File.read(sitemap_path)
+    
+    context = Object.new
+    context.instance_variable_set("@base_url", base_url)
+    rendered_xml = ERB.new(sitemap_content).result(context.instance_eval { binding })
+    
+    halt(res, 200, rendered_xml)
   end
 
   # Robots.txt Dinamis
